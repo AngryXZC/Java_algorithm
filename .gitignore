@@ -3,3 +3,5 @@
 
 # Ignore Gradle build output directory
 build
+# 忽略data下的txt
+/app/src/main/java/java_algorithm/data/*.txt
