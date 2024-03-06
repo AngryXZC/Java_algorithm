@@ -1,13 +1,17 @@
-package java_algorithm.fundamental;
+package java_algorithm.exercises.chaepter01.section01;
 
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 import org.junit.Test;
 
-import java.util.Scanner;
-
-public class FundamentalTest {
+/**
+ *@author xzc
+ *@date 2021/5/8
+ *@description
+ * 大部分的第一章1.1的练习题答案
+ */
+public class Section1_1 {
     @Test
     public void test() {
         System.out.println("Hello, World!");
