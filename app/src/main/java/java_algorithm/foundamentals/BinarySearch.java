@@ -104,6 +104,7 @@ public class BinarySearch {
             int key = StdIn.readInt();
             if (BinarySearch.indexOf(allowlist, key) == -1)
                 StdOut.println(key);
+
         }
     }
 }
