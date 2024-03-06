@@ -11,3 +11,5 @@ build
 /app/src/main/java/java_algorithm/data/*.csv
 # 忽略所有的.class文件
 *.class
+#忽略.zip文件
+/app/src/main/java/java_algorithm/data/algs4-data.zip

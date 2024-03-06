@@ -8,13 +8,18 @@
       ```shell
       export CLASSPATH=<i>algs.jar的路径</i>
       ```
+   windows下
+    ```shell
+    $env:CLASSPATH="$CLASSPATH;D:\Algorithm\Java_algorithm\Java_algorithm\app\lib\algs4.jar"
+    ```
    4. 记得跑书上例子的时候不要声明package不然编译得加全包名
    5. 书上的例子： 
-         ```shell
-         java BinarySearch tinyW.txt < tinyT.txt
-         ```
-      改为
-      ```shell
-       java BinarySearch ../data/tinyW.txt < ../data/tinyT.txt
+       ```shell
+       java BinarySearch tinyW.txt < tinyT.txt
        ```
+    改为
+    ```shell
+     java BinarySearch ../data/tinyW.txt < ../data/tinyT.txt
+     ```
+     
 ### 《慕课网算法的整理》
