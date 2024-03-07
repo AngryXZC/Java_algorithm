@@ -95,7 +95,6 @@ public class BinarySearch {
         // read the integers from a file
         In in = new In(args[0]);
         int[] allowlist = in.readAllInts();
-
         // sort the array
         Arrays.sort(allowlist);
 

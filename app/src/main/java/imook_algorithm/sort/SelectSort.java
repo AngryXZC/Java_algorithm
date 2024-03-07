@@ -8,7 +8,7 @@ package imook_algorithm.sort;
  */
 public class SelectSort {
     private SelectSort(){}
-    public static  <E extends Comparable<E>>void selectSort(E[] arr){
+    public static  <E extends Comparable<E>>void sort(E[] arr){
         int n=arr.length;
         for (int i = 0; i < n; i++) {
             int minIndex=i;

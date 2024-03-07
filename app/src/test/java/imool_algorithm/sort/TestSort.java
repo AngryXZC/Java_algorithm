@@ -13,7 +13,7 @@ public class TestSort {
     @Test
     public void testSelectSort(){
         Integer[] arr = {10,9,8,7,6,5,4,3,2,1};
-        SelectSort.selectSort(arr);
+        SelectSort.sort(arr);
         for(int i = 0 ; i < arr.length ; i ++)
             System.out.print(arr[i] + " ");
         System.out.println();
@@ -23,7 +23,7 @@ public class TestSort {
         Student[] students = {new Student("Alice",98),
                 new Student("Bobo",100),
                 new Student("Charles",66)};
-        SelectSort.selectSort(students);
+        SelectSort.sort(students);
         for(int i = 0 ; i < students.length ; i ++)
             System.out.print(students[i] + " ");
         System.out.println();

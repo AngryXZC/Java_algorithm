@@ -3,6 +3,7 @@ package imool_algorithm.chapter01;
 import imook_algorithm.foundation.ArrayGenerator;
 import imook_algorithm.foundation.LinearSearch;
 import imook_algorithm.foundation.Student;
+import imook_algorithm.sort.SelectSort;
 import org.junit.Test;
 
 
@@ -55,6 +56,20 @@ public class Test01 {
             System.out.println("n = " + n + ", 100 runs : " + time + "s");
         }
 
+    }
+    //测试随机大小的选择排序
+    @Test
+    public void testSelectSort(){
+        int[] dataSize = {10000, 100000};
+        for(int n: dataSize) {
+            Integer[] data = ArrayGenerator.generateRandomArray(n, n);
+            long startTime = System.nanoTime();
+            SelectSort.sort(data);
+            long endTime = System.nanoTime();
+
+            double time = (endTime - startTime) / 1000000000.0;
+            System.out.println("Random Array, n = " + n + " : " + time + "s");
+        }
     }
 
 }
