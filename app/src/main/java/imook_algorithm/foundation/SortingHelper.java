@@ -1,5 +1,6 @@
 package imook_algorithm.foundation;
-import imook_algorithm.sort.SelectSort;
+import imook_algorithm.sort.InsertionSort;
+import imook_algorithm.sort.SelectionSort;
 /**
  * @author xzc
  * @date 2024/3/7 11 36:20
@@ -20,7 +21,10 @@ public class SortingHelper {
     public static <E extends Comparable<E>> void sortTest(String sortName, E[] arr){
         long startTime = System.nanoTime();
         if(sortName.equals("SelectionSort")){
-            SelectSort.sort(arr);
+            SelectionSort.sort(arr);
+        }
+        else if (sortName.equals("InsertionSort")){
+            InsertionSort.sort(arr);
         }
         long endTime = System.nanoTime();
         double time = (endTime - startTime) / 1000000000.0;

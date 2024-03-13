@@ -6,8 +6,8 @@ package imook_algorithm.sort;
  * @date 2024/3/4 22 54:03
  * @description 选择排序
  */
-public class SelectSort {
-    private SelectSort(){}
+public class SelectionSort {
+    private SelectionSort(){}
     public static  <E extends Comparable<E>>void sort(E[] arr){
         int n=arr.length;
         for (int i = 0; i < n; i++) {
