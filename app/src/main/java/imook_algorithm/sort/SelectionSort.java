@@ -13,16 +13,10 @@ public class SelectionSort {
         for (int i = 0; i < n; i++) {
             int minIndex=i;
             for(int j=i+1;j<n;j++){
-                if(arr[j].compareTo(arr[i])<0){
+                if(arr[j].compareTo(arr[minIndex])<0){
                     minIndex=j;
                 }
             }
-//            if(minIndex==i){
-//                continue;
-//            }
-//            arr[i]=arr[minIndex]+arr[i];
-//            arr[minIndex]=arr[i]-arr[minIndex];
-//            arr[i]=arr[i]-arr[minIndex];
             swap(arr,i,minIndex);
         }
     }

@@ -22,11 +22,26 @@ public class InsertionSort {
 //                }
 //            }
             //优化写法
-            for (int j = i; j-1 >0&& arr[j].compareTo(arr[j - 1]) < 0; j++) {
+            for (int j = i; j-1 >=0&& arr[j].compareTo(arr[j - 1]) < 0; j--) {
                 swap(arr, j, j - 1);
             }
         }
     }
+
+//将交换改为赋值
+    public static <E extends Comparable<E>> void sort2(E[] arr) {
+        int n = arr.length;
+        for (int i = 0; i < n; i++) {
+            //将arr[i]插入到合适的位置
+            E t=arr[i];
+            int j;
+            for ( j = i; j-1 >=0&& t.compareTo(arr[j - 1]) < 0; j--) {
+                arr[j]=arr[j-1];
+            }
+            arr[j]=t;
+        }
+    }
+
 
     private static <E>void swap(E[] arr, int i, int swapIndex) {
         E t=arr[i];

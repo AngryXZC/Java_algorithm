@@ -25,6 +25,8 @@ public class SortingHelper {
         }
         else if (sortName.equals("InsertionSort")){
             InsertionSort.sort(arr);
+        } else if (sortName.equals("InsertionSort2")) {
+            InsertionSort.sort2(arr);
         }
         long endTime = System.nanoTime();
         double time = (endTime - startTime) / 1000000000.0;
