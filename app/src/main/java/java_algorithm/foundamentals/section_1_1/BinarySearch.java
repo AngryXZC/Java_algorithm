@@ -1,4 +1,4 @@
-/******************************************************************************
+package java_algorithm.foundamentals.section_1_1; /******************************************************************************
  *  Compilation:  javac BinarySearch.java
  *  Execution:    java BinarySearch allowlist.txt < input.txt
  *  Dependencies: In.java StdIn.java StdOut.java

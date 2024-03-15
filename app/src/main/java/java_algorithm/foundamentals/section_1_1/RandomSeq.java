@@ -1,4 +1,4 @@
-//package java_algorithm.foundamentals;
+package java_algorithm.foundamentals.section_1_1;//package java_algorithm.foundamentals;
 
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
