@@ -11,7 +11,7 @@ import org.junit.Test;
 public class ArrayTest {
     @Test
     public void testArray(){
-        Array<Integer> arr = new Array<>(20);
+        Array<Integer> arr = new Array<>();
         for(int i = 0 ; i < 10 ; i ++)
             arr.addLast(i);
         System.out.println(arr);
