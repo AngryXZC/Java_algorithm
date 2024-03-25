@@ -108,7 +108,7 @@ public class Array<E> {
         size --;
         data[size] = null; // loitering objects != memory leak 触发JVM主动回收
 
-        if(size == data.length / 2)
+        if(size == data.length / 4&& data.length/2!=0)//lazy加载
             resize(data.length / 2);
         return ret;
     }
