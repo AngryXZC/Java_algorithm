@@ -1,6 +1,6 @@
 package imool_algorithm.sort.arry_test;
 
-import imook_algorithm.data_structure.Array;
+import imook_algorithm.data_structure.arrays.Array;
 import org.junit.Test;
 
 /**

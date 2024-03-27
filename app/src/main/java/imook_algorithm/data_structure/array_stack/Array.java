@@ -1,10 +1,9 @@
-package imook_algorithm.data_structure;
+package imook_algorithm.data_structure.array_stack;
 
 /**
  * @author xzc
- * @date 2024/3/15 16 32:04
+ * @date 2024/3/27 16 27:18
  * @description
- * 数组ADT
  */
 
 public class Array<E> {
@@ -72,6 +71,14 @@ public class Array<E> {
         return data[index];
     }
 
+    public E getLast(){
+        return get(size - 1);
+    }
+
+    public E getFirst(){
+        return get(0);
+    }
+
     // 修改index索引位置的元素为e
     public void set(int index, E e){
         if(index < 0 || index >= size)
@@ -106,9 +113,9 @@ public class Array<E> {
         for(int i = index + 1 ; i < size ; i ++)
             data[i - 1] = data[i];
         size --;
-        data[size] = null; // loitering objects != memory leak 触发JVM主动回收
+        data[size] = null; // loitering objects != memory leak
 
-        if(size == data.length / 4&& data.length/2!=0)//lazy加载
+        if(size == data.length / 4 && data.length / 2 != 0)
             resize(data.length / 2);
         return ret;
     }
