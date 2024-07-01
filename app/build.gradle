@@ -13,7 +13,11 @@ plugins {
 
 repositories {
     // Use Maven Central for resolving dependencies.
-    mavenCentral()
+//    mavenCentral()
+    // google()
+    //jcenter()
+    maven{ url 'https://maven.aliyun.com/nexus/content/groups/public/'}
+    google()
 }
 
 dependencies {
@@ -23,9 +27,9 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
     // 依赖某个jar文件
-    //implementation files('lib/xxx.jar') 
+    //implementation files('lib/xxx.jar')
     // 依赖libs目录下所有以.jar结尾的文件
-    implementation fileTree(dir: 'lib', includes: ['*.jar']) 
+    implementation fileTree(dir: 'lib', includes: ['*.jar'])
     // 依赖libs目录下除了xxx.jar以外的所有以.jar结尾的文件
     //implementation fileTree(dir: 'lib', excludes: ['xxx.jar'], includes: ['*.jar'])
 }
@@ -42,3 +46,14 @@ application {
     // Define the main class for the application.
     mainClass = 'java_algorithm.App'
 }
+
+allprojects {
+    repositories {
+        //google()
+        //jcenter()
+        maven{ url 'https://maven.aliyun.com/nexus/content/groups/public/'}
+        google()
+    }
+
+}
+
