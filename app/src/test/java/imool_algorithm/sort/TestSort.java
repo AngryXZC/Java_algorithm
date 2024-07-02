@@ -122,4 +122,14 @@ public class TestSort {
             SortingHelper.sortTest("InsertionSort2",data2);
         }
     }
+
+
+ //测试归并排序
+ @Test
+ public  void testMergerSort()
+ {
+     int n=8;
+     Integer[] arr=ArrayGenerator.generateRandomArray(n,n);
+     SortingHelper.sortTest("MergeSort",arr);
+ }
 }

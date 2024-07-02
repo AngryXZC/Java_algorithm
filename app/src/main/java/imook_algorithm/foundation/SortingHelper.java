@@ -1,5 +1,6 @@
 package imook_algorithm.foundation;
 import imook_algorithm.sort.InsertionSort;
+import imook_algorithm.sort.MergeSort;
 import imook_algorithm.sort.SelectionSort;
 /**
  * @author xzc
@@ -27,6 +28,8 @@ public class SortingHelper {
             InsertionSort.sort(arr);
         } else if (sortName.equals("InsertionSort2")) {
             InsertionSort.sort2(arr);
+        } else if (sortName.equals("MergeSort")) {
+            MergeSort.sort(arr);
         }
         long endTime = System.nanoTime();
         double time = (endTime - startTime) / 1000000000.0;
