@@ -72,7 +72,7 @@ public class OptimizeMergeSort {
         sort3(arr, l, mid);
         sort3(arr, mid + 1, r);
 
-        // 优化
+        // 优化方案一
         if (arr[mid].compareTo(arr[mid + 1]) > 0)
             merge(arr, l, mid, r);
     }
@@ -103,6 +103,53 @@ public class OptimizeMergeSort {
             }
         }
     }
+
+    private static <E extends Comparable<E>> void merge2(E[] arr, int l, int mid, int r,E[] temp) {
+
+//        E[] temp = Arrays.copyOfRange(arr, l, r + 1);
+        System.arraycopy(arr, l, temp, l, r - l + 1);
+
+        int i = l, j = mid + 1;
+
+        // 每轮循环为 arr[k] 赋值
+        for (int k = l; k <= r; k++) {
+
+            if (i > mid) {
+                arr[k] = temp[j];
+                j++;
+            } else if (j > r) {
+                arr[k] = temp[i ];
+                i++;
+            } else if (temp[i ].compareTo(temp[j ]) <= 0) {
+                arr[k] = temp[i];
+                i++;
+            } else {
+                arr[k] = temp[j];
+                j++;
+            }
+        }
+    }
+
+    //优化方案三，对merge进行优化
+    public static <E extends Comparable<E>> void sort4(E[] arr) {
+        E[] temp = Arrays.copyOf(arr, arr.length);
+        sort4(arr, 0, arr.length - 1,temp);
+    }
+
+    private static <E extends Comparable<E>> void sort4(E[] arr, int l, int r,E[] temp) {
+
+        if (l >= r)
+            return;
+
+        int mid = l + (r - l) / 2;
+        sort4(arr, l, mid,temp);
+        sort4(arr, mid + 1, r,temp);
+
+        // 优化
+        if (arr[mid].compareTo(arr[mid + 1]) > 0)
+            merge2(arr, l, mid, r,temp);
+    }
+
 
     public static void main(String[] args) {
 
