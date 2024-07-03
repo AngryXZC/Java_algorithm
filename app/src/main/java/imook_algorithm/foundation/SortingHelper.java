@@ -34,6 +34,13 @@ public class SortingHelper {
         }else if (sortName.equals("MergeSort2")) {
             OptimizeMergeSort.sort2(arr);
         }
+        else if (sortName.equals("MergeSort3")) {
+            OptimizeMergeSort.sort3(arr);
+        } else if (sortName.equals("MergeSort4")) {
+            OptimizeMergeSort.sort4(arr);
+        } else if (sortName.equals("MergeSortBU")) {
+            OptimizeMergeSort.sortBU(arr);
+        }
         long endTime = System.nanoTime();
         double time = (endTime - startTime) / 1000000000.0;
         if(!SortingHelper.isSorted(arr)){

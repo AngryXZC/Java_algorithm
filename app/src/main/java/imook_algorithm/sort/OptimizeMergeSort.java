@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 
 public class OptimizeMergeSort {
-
+//自顶向下的归并排序
     private OptimizeMergeSort() {
     }
 
@@ -150,6 +150,22 @@ public class OptimizeMergeSort {
             merge2(arr, l, mid, r,temp);
     }
 
+    // 自底向上的归并排序
+    public static <E extends Comparable<E>> void sortBU(E[] arr) {
+
+        E[] temp = Arrays.copyOf(arr, arr.length);
+
+        int n = arr.length;
+        // sz 为子数组的大小, 1, 2, 4, 8...
+        for (int sz = 1; sz < n; sz += sz)
+            // 遍历合并的两个区间的起始位置 i
+            // 合并 arr[i...i+sz-1] 和 arr[i+sz...i+2*sz-1]
+            for (int i = 0; i + sz < n; i += sz + sz)
+                // 对 arr[i...i+sz-1] 和 arr[i+sz...i+2*sz-1] 进行归并
+                if (arr[i + sz - 1].compareTo(arr[i + sz]) > 0)
+                    if (arr[i + sz - 1].compareTo(arr[i + sz]) > 0)
+                        merge2(arr, i, i + sz - 1, Math.min(i + sz + sz - 1, n - 1), temp);
+    }
 
     public static void main(String[] args) {
 
