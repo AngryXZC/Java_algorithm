@@ -156,8 +156,15 @@ public class OptimizeMergeSort {
         E[] temp = Arrays.copyOf(arr, arr.length);
 
         int n = arr.length;
+
+        // 使用插入排序优化
+        // 遍历一遍，对所有 arr[i, i + 15] 的区间，使用插入排序法
+        // 注意 i 每次加 16
+        for(int i = 0; i < n; i += 16)
+            InsertionSort.sort(arr, i, Math.min(i + 15, n - 1)); // 也要注意这里 Math.min 的用法
+
         // sz 为子数组的大小, 1, 2, 4, 8...
-        for (int sz = 1; sz < n; sz += sz)
+        for (int sz = 16; sz < n; sz += sz)
             // 遍历合并的两个区间的起始位置 i
             // 合并 arr[i...i+sz-1] 和 arr[i+sz...i+2*sz-1]
             for (int i = 0; i + sz < n; i += sz + sz)
