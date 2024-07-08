@@ -1,8 +1,6 @@
 package imook_algorithm.foundation;
-import imook_algorithm.sort.InsertionSort;
-import imook_algorithm.sort.MergeSort;
-import imook_algorithm.sort.OptimizeMergeSort;
-import imook_algorithm.sort.SelectionSort;
+import imook_algorithm.sort.*;
+
 /**
  * @author xzc
  * @date 2024/3/7 11 36:20
@@ -40,6 +38,14 @@ public class SortingHelper {
             OptimizeMergeSort.sort4(arr);
         } else if (sortName.equals("MergeSortBU")) {
             OptimizeMergeSort.sortBU(arr);
+        } else if (sortName.equals("QuickSort")) {
+            QuickSort.sort(arr);
+        }
+        else if (sortName.equals("QuickSort2")){
+            OptimizeQuickSort.sort(arr);
+        }
+        else if (sortName.equals("QuickSort3")){
+            OptimizeQuickSort.sort(arr);
         }
         long endTime = System.nanoTime();
         double time = (endTime - startTime) / 1000000000.0;

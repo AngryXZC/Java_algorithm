@@ -125,3 +125,130 @@
 4. 递归树的高度表示递归的调用深度
 5. 通常用来分析递归算法的时间复杂度
 当然分析递归算法的时间复杂度还有其他的方法，比如【主定理】见《算法导论》
+
+#### 自底向上的归并排序
+```java
+    public static <E extends Comparable<E>> void sort(E[] arr){
+        int n=arr.length;
+        for (int sz = 1; sz < n; sz+=sz) {
+            for (int i = 0; i+sz < n; i+=sz+sz) {
+                merge(arr,i,i+sz-1,Math.min(i+sz+sz-1,n-1));
+            }
+        }
+    }
+```
+自底向上的归并排序的时间复杂度是O(nlogn)
+使用自底向上的归并排序的时候，可以使用插入排序来优化小规模的数组，指定超参数为16
+```java
+    public static <E extends Comparable<E>> void sort(E[] arr){
+        int n=arr.length;
+        for (int i = 0; i < n; i+=16) {
+            InsertionSort.sort(arr,i,Math.min(i+15,n-1));
+        }
+        for (int sz = 16; sz < n; sz+=sz) {
+            for (int i = 0; i+sz < n; i+=sz+sz) {
+                merge(arr,i,i+sz-1,Math.min(i+sz+sz-1,n-1));
+            }
+        }
+    }
+```
+#### 逆序数对个数问题
+
+问题描述：给定一个数组，求逆序数对的个数
+
+逆序数对的定义：对于数组arr，如果arr[i]>arr[j]，i<j,那么这个就是一个逆序数对
+
+代码：
+
+1. 使用暴力解法
+```java
+    public static <E extends Comparable<E>> int count(E[] arr){
+        int n=arr.length;
+        int count=0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i+1; j < n; j++) {
+                if(arr[i].compareTo(arr[j])>0){
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+```
+2. 使用归并排序的思想
+```java
+    public static <E extends Comparable<E>> int count(E[] arr){
+        int n=arr.length;
+        return count(arr,0,n-1);
+    }
+    private static <E extends Comparable<E>> int count(E[] arr,int l,int r){
+        if(l>=r){
+            return 0;
+        }
+        int mid=l+(r-l)/2;
+        int left=count(arr,l,mid);
+        int right=count(arr,mid+1,r);
+        return left+right+merge(arr,l,mid,r);
+    }
+    private static <E extends Comparable<E>> int merge(E[] arr,int l,int mid,int r){
+        E[] temp=Arrays.copyOfRange(arr,l,r+1);
+        int i=l,j=mid+1;
+        int count=0;
+        for (int k = l; k <= r; k++) {
+            if(i>mid){
+                arr[k]=temp[j-l];
+                j++;
+            }else if(j>r){
+                arr[k]=temp[i-l];
+                i++;
+            }else if(temp[i-l].compareTo(temp[j-l])<=0){
+                arr[k]=temp[i-l];
+                i++;
+            }else{
+                arr[k]=temp[j-l];
+                j++;
+                count+=mid-i+1;
+            }
+        }
+        return count;
+    }
+```
+归并排序法的时间复杂度是O(nlogn)
+归并排排序也是一种分治的算法
+空间复杂度是O(n)
+
+### 快速排序
+```java
+    public static <E extends Comparable<E>> void sort(E[] arr){
+        int n=arr.length;
+        sort(arr,0,n-1);
+    }
+    private static <E extends Comparable<E>> void sort(E[] arr,int l,int r){
+        if(l>=r){
+            return;
+        }
+        int p=partition(arr,l,r);
+        sort(arr,l,p-1);
+        sort(arr,p+1,r);
+    }
+    private static <E extends Comparable<E>> int partition(E[] arr,int l,int r){
+        int j=l;
+        for (int i = l+1; i <= r; i++) {
+            if(arr[i].compareTo(arr[l])<0){
+                j++;
+                swap(arr,i,j);
+            }
+        }
+        swap(arr,l,j);
+        return j;
+    }
+```
+快速排序的时间复杂度是O(nlogn)
+快速排序是一种原地排序算法
+
+#### 快速排序的优化
+
+1. 对于小规模的数组，使用插入排序
+2. 对于完全有序的数组，快速排序的时间复杂度是O(n^2)
+   1. 对于完全有序的数组，递归深度是O(n)
+   2. 解决方案：随机选择一个元素作为标定点
