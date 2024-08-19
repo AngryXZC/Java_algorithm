@@ -47,6 +47,7 @@ public class QuickSort {
             return j;
      }
 
+
     private static   <E> void swap(E[] arr, int i, int j) {
         E t = arr[i];
         arr[i] = arr[j];
@@ -57,10 +58,10 @@ public class QuickSort {
         int n=1000000;
         Integer[] arr= ArrayGenerator.generateRandomArray(n,n);
         Integer[] arr2= Arrays.copyOf(arr,arr.length);
-         Integer[] arr3= Arrays.copyOf(arr,arr.length);
+        Integer[] arr3= Arrays.copyOf(arr,arr.length);
         SortingHelper.sortTest("MergeSort2",arr2);
         SortingHelper.sortTest("QuickSort",arr);
-        SortingHelper.sortTest("QuickSort2",arr3);
+        SortingHelper.sortTest("QuickSort3 Ways",arr3);
 
      }
 }

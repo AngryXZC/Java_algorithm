@@ -46,6 +46,10 @@ public class SortingHelper {
         }
         else if (sortName.equals("QuickSort3")){
             OptimizeQuickSort.sort(arr);
+        } else if (sortName.equals("QuickSort2Ways")) {
+            OptimizeQuickSort.sort2ways(arr);
+        } else if (sortName.equals("QuickSort3Ways")) {
+            OptimizeQuickSort.sort3ways(arr);
         }
         long endTime = System.nanoTime();
         double time = (endTime - startTime) / 1000000000.0;
