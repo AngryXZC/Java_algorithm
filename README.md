@@ -81,22 +81,32 @@
         sort(arr,0,n-1);
     }
     private static <E extends Comparable<E>> void sort(E[] arr,int l,int r){
+       //递归的结束条件
+       // 此时为空区间反应了递归的结束条件
         if(l>=r){
             return;
         }
         int mid=l+(r-l)/2;
+        //对 arr[l...mid]进行排序
         sort(arr,l,mid);
+        //对 arr[mid+1...r]进行排序
         sort(arr,mid+1,r);
         merge(arr,l,mid,r);
     }
+    //将arr[l...mid]和arr[mid+1...r]两部分进行归并
     private static <E extends Comparable<E>> void merge(E[] arr,int l,int mid,int r){
         E[] temp= Arrays.copyOfRange(arr,l,r+1);
         int i=l,j=mid+1;
+        //每轮循环为arr[k]赋值
         for (int k = l; k <= r; k++) {
+            //左边的元素已经全部处理完毕
             if(i>mid){
+                //此时k索引处的元素的索引为j-l
                 arr[k]=temp[j-l];
                 j++;
-            }else if(j>r){
+            }
+            //右边的元素已经全部处理完毕
+            else if(j>r){
                 arr[k]=temp[i-l];
                 i++;
             }else if(temp[i-l].compareTo(temp[j-l])<0){
@@ -273,3 +283,8 @@
 分析复杂度的时候，通常使用期望复杂度，没有一组数据100%的复杂度
 #### 多次调用
 尝试使用均摊分析，多次调用的时候，平均下来的复杂度
+
+### 查找算法
+
+#### 二分查找法 Binarry Search
+对于有序序列才能使用二分查找法
