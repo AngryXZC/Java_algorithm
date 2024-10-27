@@ -50,14 +50,16 @@ public class MergeSort {
     // 合并两个有序的区间 arr[l, mid] 和 arr[mid + 1, r]
     private static <E extends Comparable<E>> void merge(E[] arr, int l, int mid, int r){
 
+        //copyOfRange这个区间是前闭后开的区间
         E[] temp = Arrays.copyOfRange(arr, l, r + 1);
 
         int i = l, j = mid + 1;
 
         // 每轮循环为 arr[k] 赋值
         for(int k = l; k <= r; k ++){
-
+            //i越界
             if(i > mid){
+                //temp 索引从0开始，而arr从l开始，偏移量是j-l
                 arr[k] = temp[j - l]; j ++;
             }
             else if(j > r){

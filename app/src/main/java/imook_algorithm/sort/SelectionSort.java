@@ -9,6 +9,7 @@ package imook_algorithm.sort;
 public class SelectionSort {
     private SelectionSort(){}
     public static  <E extends Comparable<E>>void sort(E[] arr){
+        //arr[0,i）是正确的位置，arr[i+1,n）无序
         int n=arr.length;
         for (int i = 0; i < n; i++) {
             int minIndex=i;

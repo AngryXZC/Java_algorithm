@@ -10,6 +10,7 @@ public class InsertionSort {
     }
 
     //插入排序
+    //a[0,i)已经排好，a[i,n)未排序
     public static <E extends Comparable<E>> void sort(E[] arr) {
         int n = arr.length;
         for (int i = 0; i < n; i++) {
@@ -36,6 +37,7 @@ public class InsertionSort {
             E t=arr[i];
             int j;
             for ( j = i; j-1 >=0&& t.compareTo(arr[j - 1]) < 0; j--) {
+                //向后平移
                 arr[j]=arr[j-1];
             }
             arr[j]=t;

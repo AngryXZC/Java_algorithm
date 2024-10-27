@@ -67,7 +67,34 @@ public class BinarySearch {
             return u-1;
         return u;
     }
- public static void main(String[] args) {
+
+    // >= target 的最小值索引
+    public static <E extends Comparable<E>> int lower_ceil(E[] data, E target){
+
+        int l = 0, r = data.length;
+
+        // 在 data[l, r] 中寻找解
+        while(l < r){
+
+            int mid = l + (r - l) / 2;
+
+            // 在 upper 中，这里是 data[mid].compareTo(target) <= 0
+            // 但是，对于 lower_ceil 来说，在 data[mid] == target 的时候，有可能是解
+            // 所以在等于的情况下，不能排除掉 data[mid] 的值。在等于的情况下，应该归入下面的 else 中做处理
+            // 也就是，data[mid] == target 的时候可能是解，也可能有更小的解在左边，应该去更新右边界
+            if(data[mid].compareTo(target) < 0)
+                l = mid + 1;
+            else
+                r = mid;
+        }
+        return l;
+    }
+
+    //lower 变种
+
+
+
+    public static void main(String[] args) {
 
         Integer[] arr={1,2,3,3,5,5};
 

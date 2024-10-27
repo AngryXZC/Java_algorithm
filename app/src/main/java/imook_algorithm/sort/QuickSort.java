@@ -27,7 +27,9 @@ public class QuickSort {
             return; // 注意，这里要 return！
         }
         int p=partition(arr,l,r,rnd);
+        //对arr[l,p-1]进行排序
         sort(arr,l,p-1,rnd);
+        //对arr[p+1,r]进行排序
         sort(arr,p+1,r, rnd);
     }
      private static <E extends Comparable<E>> int partition(E[] arr, int l, int r,Random rnd) {
